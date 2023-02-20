@@ -1,0 +1,30 @@
+profile user system
+
+- login
+- register
+=============JWT=============
+- get profile
+- update profile
+- udpate image_profile
+
+
+user
+- uid
+- email
+- password
+- password_salt
+- created_at
+
+users_detail
+- uid
+- name
+- address
+- date_of_birth
+- gender
+- created_at
+
+
+media
+- id
+- path
+- craeted_at
