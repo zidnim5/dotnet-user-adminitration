@@ -22,9 +22,11 @@ users_detail
 - date_of_birth
 - gender
 - created_at
+- user_id fk
 
 
 media
 - id
 - path
 - craeted_at
+- user_id fk

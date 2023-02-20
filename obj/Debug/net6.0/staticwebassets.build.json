@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "EWaK0aQJ4+hMth1NDnKCqMquKPWWVMlKMjflggXkkWQ=",
+  "Source": "dotnet-user-adminitration",
+  "BasePath": "_content/dotnet-user-adminitration",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
