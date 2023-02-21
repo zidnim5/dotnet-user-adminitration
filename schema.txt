@@ -1,10 +1,10 @@
 profile user system
 
-- login
-- register
+- login  done
+- register email and password aja done
 =============JWT=============
-- get profile
-- update profile
+- get profile - email
+- update profile - email
 - udpate image_profile
 
 

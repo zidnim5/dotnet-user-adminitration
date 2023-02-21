@@ -1,5 +1,7 @@
 global using dotnet_user_adminitration.Models;
-using dotnet_user_adminitration.Data;
+global using dotnet_user_adminitration.Data;
+global using dotnet_user_adminitration.Dtos;
+using dotnet_user_adminitration.Services;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -10,6 +12,10 @@ builder.Services.AddDbContext<DataContext>(options => options.UseMySQL(builder.C
 
 
 builder.Services.AddControllers();
+
+builder.Services.AddAutoMapper(typeof(Program).Assembly);
+builder.Services.AddScoped<IUserService, UserService>();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

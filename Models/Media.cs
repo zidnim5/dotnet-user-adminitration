@@ -7,10 +7,10 @@ namespace dotnet_user_adminitration.Models
 {
      public class Media
      {
-          public int Uid { get; set; }
+          public int Id { get; set; }
           public string Path { get; set; } = string.Empty;
-          public DateTime CreatedAt { get; set; }
+          public string CreatedAt { get; set; }
           public User User { get; set; }
-
+          public int UserId { get; set; }
      }
 }

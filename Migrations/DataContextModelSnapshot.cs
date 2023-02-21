@@ -21,39 +21,40 @@ namespace dotnet_user_adminitration.Migrations
 
             modelBuilder.Entity("dotnet_user_adminitration.Models.Media", b =>
                 {
-                    b.Property<int>("Uid")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime(6)");
+                    b.Property<string>("CreatedAt")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Path")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<int>("UserUid")
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
-                    b.HasKey("Uid");
+                    b.HasKey("Id");
 
-                    b.HasIndex("UserUid");
+                    b.HasIndex("UserId")
+                        .IsUnique();
 
                     b.ToTable("Media");
                 });
 
             modelBuilder.Entity("dotnet_user_adminitration.Models.User", b =>
                 {
-                    b.Property<int>("Uid")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("Email")
+                    b.Property<string>("CreatedAt")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Password")
+                    b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("longtext");
 
@@ -65,22 +66,24 @@ namespace dotnet_user_adminitration.Migrations
                         .IsRequired()
                         .HasColumnType("longblob");
 
-                    b.HasKey("Uid");
+                    b.HasKey("Id");
 
                     b.ToTable("User");
                 });
 
             modelBuilder.Entity("dotnet_user_adminitration.Models.UserDetail", b =>
                 {
-                    b.Property<int>("Uid")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<string>("Address")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime(6)");
+                    b.Property<string>("CreatedAt")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<int>("Gender")
                         .HasColumnType("int");
@@ -89,15 +92,16 @@ namespace dotnet_user_adminitration.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<int>("UserUid")
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("date_of_birth")
                         .HasColumnType("datetime(6)");
 
-                    b.HasKey("Uid");
+                    b.HasKey("Id");
 
-                    b.HasIndex("UserUid");
+                    b.HasIndex("UserId")
+                        .IsUnique();
 
                     b.ToTable("UserDetail");
                 });
@@ -105,8 +109,8 @@ namespace dotnet_user_adminitration.Migrations
             modelBuilder.Entity("dotnet_user_adminitration.Models.Media", b =>
                 {
                     b.HasOne("dotnet_user_adminitration.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserUid")
+                        .WithOne("Media")
+                        .HasForeignKey("dotnet_user_adminitration.Models.Media", "UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -116,12 +120,21 @@ namespace dotnet_user_adminitration.Migrations
             modelBuilder.Entity("dotnet_user_adminitration.Models.UserDetail", b =>
                 {
                     b.HasOne("dotnet_user_adminitration.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserUid")
+                        .WithOne("UserDetail")
+                        .HasForeignKey("dotnet_user_adminitration.Models.UserDetail", "UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("dotnet_user_adminitration.Models.User", b =>
+                {
+                    b.Navigation("Media")
+                        .IsRequired();
+
+                    b.Navigation("UserDetail")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

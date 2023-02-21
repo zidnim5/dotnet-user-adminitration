@@ -1,14 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "TEcDeX8muSZ/okxtEJCxM6abmm4sJdddyNuRZi5dZ0GA+UTiwmTeUawxGFPqDDZucOTQthtnXc8Stia9akPW6A==",
+  "dgSpecHash": "PgsEs5tlJRa8mt3/8hVQac8EfmnSWM49ATQfRezJYQ6Vh0qxRe8S3W8S2ChCXUYy6NMBYCnApRk2PjYQfZjpJQ==",
   "success": true,
   "projectFilePath": "/home/zidnim5/Music/healthbank/dotnet-user-adminitration/dotnet-user-adminitration.csproj",
   "expectedPackageFiles": [
+    "/home/zidnim5/.nuget/packages/automapper/12.0.0/automapper.12.0.0.nupkg.sha512",
+    "/home/zidnim5/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.0/automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
     "/home/zidnim5/.nuget/packages/google.protobuf/3.21.9/google.protobuf.3.21.9.nupkg.sha512",
     "/home/zidnim5/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/home/zidnim5/.nuget/packages/k4os.compression.lz4/1.2.6/k4os.compression.lz4.1.2.6.nupkg.sha512",
     "/home/zidnim5/.nuget/packages/k4os.compression.lz4.streams/1.2.6/k4os.compression.lz4.streams.1.2.6.nupkg.sha512",
     "/home/zidnim5/.nuget/packages/k4os.hash.xxhash/1.0.6/k4os.hash.xxhash.1.0.6.nupkg.sha512",
+    "/home/zidnim5/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",
     "/home/zidnim5/.nuget/packages/microsoft.entityframeworkcore/7.0.3/microsoft.entityframeworkcore.7.0.3.nupkg.sha512",
     "/home/zidnim5/.nuget/packages/microsoft.entityframeworkcore.abstractions/7.0.3/microsoft.entityframeworkcore.abstractions.7.0.3.nupkg.sha512",
     "/home/zidnim5/.nuget/packages/microsoft.entityframeworkcore.analyzers/7.0.3/microsoft.entityframeworkcore.analyzers.7.0.3.nupkg.sha512",

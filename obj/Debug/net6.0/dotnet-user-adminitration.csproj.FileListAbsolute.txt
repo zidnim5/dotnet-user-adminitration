@@ -69,3 +69,5 @@
 /home/zidnim5/Music/healthbank/dotnet-user-adminitration/obj/Debug/net6.0/ref/dotnet-user-adminitration.dll
 /home/zidnim5/Music/healthbank/dotnet-user-adminitration/obj/Debug/net6.0/dotnet-user-adminitration.pdb
 /home/zidnim5/Music/healthbank/dotnet-user-adminitration/obj/Debug/net6.0/dotnet-user-adminitration.genruntimeconfig.cache
+/home/zidnim5/Music/healthbank/dotnet-user-adminitration/bin/Debug/net6.0/AutoMapper.dll
+/home/zidnim5/Music/healthbank/dotnet-user-adminitration/bin/Debug/net6.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
