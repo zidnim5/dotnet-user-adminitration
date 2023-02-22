@@ -2,10 +2,10 @@ profile user system
 
 - login  done
 - register email and password aja done
-=============JWT=============
+=============JWT============= on progress
 - get profile - email
 - update profile - email
-- udpate image_profile
+- udpate image_profile done tinggal rapikan
 
 
 user

@@ -14,9 +14,12 @@ namespace dotnet_user_adminitration.Controllers
 
           private readonly IUserService _service;
 
-          public UserController(IUserService service)
+          private readonly IWebHostEnvironment _environment;
+
+          public UserController(IUserService service, IWebHostEnvironment environment)
           {
                _service = service;
+               _environment = environment;
           }
 
           [HttpPost]
@@ -52,6 +55,19 @@ namespace dotnet_user_adminitration.Controllers
           {
 
                return Ok(await _service.Update(updateUser));
+          }
+
+          [HttpPost]
+          [Route("Upload")]
+          public async Task<ActionResult<ServiceResponse<string>>> Avatar(IFormFile file)
+          {
+               return await _service.Upload(file);
+          }
+
+          [NonAction]
+          private string GetFilePath(string ProductCode)
+          {
+               return this._environment.WebRootPath + "./Assets/Profile/" + ProductCode;
           }
 
      }

@@ -13,10 +13,16 @@ namespace dotnet_user_adminitration.Services
           private readonly DataContext _contex;
           private readonly IMapper _mapper;
 
-          public UserService(DataContext context, IMapper mapper)
+          private readonly IConfiguration _config;
+
+          private readonly IImagesService _image;
+
+          public UserService(DataContext context, IMapper mapper, IConfiguration config, IImagesService image)
           {
                _contex = context;
                _mapper = mapper;
+               _config = config;
+               _image = image;
           }
 
           public async Task<ServiceResponse<string>> Login(LoginUserDto credentialUser)
@@ -154,6 +160,19 @@ namespace dotnet_user_adminitration.Services
                return false;
           }
 
+          public async Task<ServiceResponse<string>> Upload(IFormFile file)
+          {
+               ServiceResponse<string> response = new ServiceResponse<string>();
+
+               ImagesType type = ImagesType.profile;
+
+               string processUpload = await _image.Upload(file, type);
+
+               response.Data = processUpload;
+
+
+               return response;
+          }
      }
 
 }

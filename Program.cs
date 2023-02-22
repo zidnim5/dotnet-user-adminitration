@@ -3,6 +3,7 @@ global using dotnet_user_adminitration.Data;
 global using dotnet_user_adminitration.Dtos;
 using dotnet_user_adminitration.Services;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,10 +16,12 @@ builder.Services.AddControllers();
 
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IImagesService, ImageService>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();
 
