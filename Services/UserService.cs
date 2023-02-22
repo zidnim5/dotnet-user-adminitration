@@ -35,6 +35,10 @@ namespace dotnet_user_adminitration.Services
           private string GetEmailuser() => _httpContextAccessor.HttpContext.User
             .FindFirstValue(ClaimTypes.Email);
 
+
+          private int GetId() => int.Parse(_httpContextAccessor.HttpContext.User
+            .FindFirstValue(ClaimTypes.NameIdentifier));
+
           public async Task<ServiceResponse<string>> Login(LoginUserDto credentialUser)
           {
                ServiceResponse<string> response = new ServiceResponse<string>();
@@ -147,11 +151,33 @@ namespace dotnet_user_adminitration.Services
           {
                ServiceResponse<string> response = new ServiceResponse<string>();
 
+               var user = await _contex.User.Include(c => c.Media).FirstOrDefaultAsync(p => p.Id == GetId());
+
                ImagesType type = ImagesType.profile;
 
-               string processUpload = await _image.Upload(file, type);
+               ImageResponse processUpload = await _image.Upload(file, type);
 
-               response.Data = processUpload;
+               if (processUpload.Success)
+               {
+
+                    if (user!.Media != null)
+                    {
+                         user.Media.Path = processUpload.Path;
+                    }
+                    else
+                    {
+                         Media media = new Media { };
+                         media.UserId = GetId();
+                         media.Path = processUpload.Path;
+                         media.CreatedAt = DateTime.Now.ToString("yyyy-MM-dd H:m:s");
+
+                         _contex.Media.Add(media);
+                    }
+
+                    await _contex.SaveChangesAsync();
+
+                    response.Data = processUpload.Path;
+               }
 
 
                return response;

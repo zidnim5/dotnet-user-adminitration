@@ -5,6 +5,13 @@ using System.Threading.Tasks;
 
 namespace dotnet_user_adminitration.Services
 {
+
+     public class ImageResponse
+     {
+          public bool Success { get; set; }
+          public string Path { get; set; } = string.Empty;
+     }
+
      public class ImageService : IImagesService
      {
 
@@ -14,8 +21,11 @@ namespace dotnet_user_adminitration.Services
           {
                _httpContextAccessor = httpContextAccessor;
           }
-          public async Task<string> Upload(IFormFile file, ImagesType type)
+          public async Task<ImageResponse> Upload(IFormFile file, ImagesType type)
           {
+               ImageResponse response = new ImageResponse { };
+               response.Success = false;
+
                if (file != null && file.Length > 0)
                {
                     var fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
@@ -28,11 +38,12 @@ namespace dotnet_user_adminitration.Services
                     }
 
                     var imageUrl = GetBaseUrl() + fileName;
+                    response.Success = true;
+                    response.Path = imageUrl;
 
-                    return imageUrl;
                }
 
-               return "Oops, Cannot upload file";
+               return response;
           }
 
 

@@ -7,6 +7,6 @@ namespace dotnet_user_adminitration.Services
 {
      public interface IImagesService
      {
-          Task<string> Upload(IFormFile file, ImagesType type);
+          Task<ImageResponse> Upload(IFormFile file, ImagesType type);
      }
 }
