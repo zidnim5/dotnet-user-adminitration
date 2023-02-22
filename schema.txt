@@ -5,7 +5,7 @@ profile user system
 =============JWT============= on progress
 - get profile - email
 - update profile - email
-- udpate image_profile done tinggal rapikan
+- udpate image_profile done
 
 
 user

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using dotnet_user_adminitration.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
+
 
 namespace dotnet_user_adminitration.Controllers
 {
@@ -41,15 +43,16 @@ namespace dotnet_user_adminitration.Controllers
                return Ok(await _service.Login(credentialUser));
           }
 
+          [Authorize]
           [HttpGet]
-          [Route("{email}")]
-          public async Task<ActionResult<ServiceResponse<UserDto>>> Get(string email)
+          public async Task<ActionResult<ServiceResponse<UserDto>>> Get()
           {
 
-               return Ok(await _service.GetProfile(email));
+               return Ok(await _service.GetProfile());
           }
 
 
+          [Authorize]
           [HttpPut]
           public async Task<ActionResult<ServiceResponse<UserDto>>> Update(UpdateUserDto updateUser)
           {
@@ -57,6 +60,7 @@ namespace dotnet_user_adminitration.Controllers
                return Ok(await _service.Update(updateUser));
           }
 
+          [Authorize]
           [HttpPost]
           [Route("Upload")]
           public async Task<ActionResult<ServiceResponse<string>>> Avatar(IFormFile file)

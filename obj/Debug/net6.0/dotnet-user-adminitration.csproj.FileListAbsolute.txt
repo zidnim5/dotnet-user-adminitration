@@ -71,3 +71,14 @@
 /home/zidnim5/Music/healthbank/dotnet-user-adminitration/obj/Debug/net6.0/dotnet-user-adminitration.genruntimeconfig.cache
 /home/zidnim5/Music/healthbank/dotnet-user-adminitration/bin/Debug/net6.0/AutoMapper.dll
 /home/zidnim5/Music/healthbank/dotnet-user-adminitration/bin/Debug/net6.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+/home/zidnim5/Music/healthbank/dotnet-user-adminitration/bin/Debug/net6.0/Microsoft.IdentityModel.Abstractions.dll
+/home/zidnim5/Music/healthbank/dotnet-user-adminitration/bin/Debug/net6.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/home/zidnim5/Music/healthbank/dotnet-user-adminitration/bin/Debug/net6.0/Microsoft.IdentityModel.Logging.dll
+/home/zidnim5/Music/healthbank/dotnet-user-adminitration/bin/Debug/net6.0/Microsoft.IdentityModel.Tokens.dll
+/home/zidnim5/Music/healthbank/dotnet-user-adminitration/bin/Debug/net6.0/System.IdentityModel.Tokens.Jwt.dll
+/home/zidnim5/Music/healthbank/dotnet-user-adminitration/bin/Debug/net6.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/home/zidnim5/Music/healthbank/dotnet-user-adminitration/bin/Debug/net6.0/Microsoft.IdentityModel.Protocols.dll
+/home/zidnim5/Music/healthbank/dotnet-user-adminitration/bin/Debug/net6.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/home/zidnim5/Music/healthbank/dotnet-user-adminitration/bin/Debug/net6.0/Scrutor.dll
+/home/zidnim5/Music/healthbank/dotnet-user-adminitration/bin/Debug/net6.0/Swashbuckle.AspNetCore.Filters.dll
+/home/zidnim5/Music/healthbank/dotnet-user-adminitration/bin/Debug/net6.0/Swashbuckle.AspNetCore.Filters.Abstractions.dll

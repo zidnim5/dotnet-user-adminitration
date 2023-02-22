@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
+using dotnet_user_adminitration.Repositories;
+using System.Security.Claims;
 
 namespace dotnet_user_adminitration.Services
 {
@@ -17,13 +19,21 @@ namespace dotnet_user_adminitration.Services
 
           private readonly IImagesService _image;
 
-          public UserService(DataContext context, IMapper mapper, IConfiguration config, IImagesService image)
+          private readonly IAuthRepository _auth;
+          private readonly IHttpContextAccessor _httpContextAccessor;
+
+          public UserService(DataContext context, IMapper mapper, IConfiguration config, IImagesService image, IAuthRepository auth, IHttpContextAccessor httpContextAccessor)
           {
                _contex = context;
                _mapper = mapper;
                _config = config;
                _image = image;
+               _auth = auth;
+               _httpContextAccessor = httpContextAccessor;
           }
+
+          private string GetEmailuser() => _httpContextAccessor.HttpContext.User
+            .FindFirstValue(ClaimTypes.Email);
 
           public async Task<ServiceResponse<string>> Login(LoginUserDto credentialUser)
           {
@@ -42,7 +52,8 @@ namespace dotnet_user_adminitration.Services
                }
                else
                {
-                    response.Message = "Here u are";
+                    response.Data = _auth.CreateToken(user);
+                    response.Message = "Success";
                     response.Success = true;
                }
 
@@ -76,12 +87,12 @@ namespace dotnet_user_adminitration.Services
                return response;
           }
 
-          public async Task<ServiceResponse<UserDto>> GetProfile(string email)
+          public async Task<ServiceResponse<UserDto>> GetProfile()
           {
 
                ServiceResponse<UserDto> response = new ServiceResponse<UserDto>();
 
-               var user = await _contex.User.Include(c => c.UserDetail).FirstOrDefaultAsync(p => p.Email.ToLower().Equals(email.ToLower()));
+               var user = await _contex.User.Include(c => c.UserDetail).FirstOrDefaultAsync(p => p.Email.ToLower().Equals(GetEmailuser().ToLower()));
 
                if (user == null)
                {
@@ -99,7 +110,7 @@ namespace dotnet_user_adminitration.Services
           {
                ServiceResponse<UserDto> response = new ServiceResponse<UserDto>();
 
-               var user = await _contex.User.Include(c => c.UserDetail).FirstOrDefaultAsync(p => p.Email.ToLower().Equals(updateUser.Email.ToLower()));
+               var user = await _contex.User.Include(c => c.UserDetail).FirstOrDefaultAsync(p => p.Email.ToLower().Equals(GetEmailuser().ToLower()));
                if (user == null)
                {
                     response.Message = "User not found";
@@ -127,6 +138,21 @@ namespace dotnet_user_adminitration.Services
 
                await _contex.SaveChangesAsync();
                response.Data = _mapper.Map<UserDto>(user.UserDetail);
+
+               return response;
+          }
+
+
+          public async Task<ServiceResponse<string>> Upload(IFormFile file)
+          {
+               ServiceResponse<string> response = new ServiceResponse<string>();
+
+               ImagesType type = ImagesType.profile;
+
+               string processUpload = await _image.Upload(file, type);
+
+               response.Data = processUpload;
+
 
                return response;
           }
@@ -160,19 +186,6 @@ namespace dotnet_user_adminitration.Services
                return false;
           }
 
-          public async Task<ServiceResponse<string>> Upload(IFormFile file)
-          {
-               ServiceResponse<string> response = new ServiceResponse<string>();
-
-               ImagesType type = ImagesType.profile;
-
-               string processUpload = await _image.Upload(file, type);
-
-               response.Data = processUpload;
-
-
-               return response;
-          }
      }
 
 }

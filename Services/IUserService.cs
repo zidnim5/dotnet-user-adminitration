@@ -10,7 +10,7 @@ namespace dotnet_user_adminitration.Services
           Task<ServiceResponse<string>> Login(LoginUserDto credentialUser);
           Task<ServiceResponse<string>> Register(RegisterUserDto newUser);
           Task<ServiceResponse<UserDto>> Update(UpdateUserDto updateUser);
-          Task<ServiceResponse<UserDto>> GetProfile(string email);
+          Task<ServiceResponse<UserDto>> GetProfile();
           Task<ServiceResponse<string>> Upload(IFormFile file);
      }
 }
