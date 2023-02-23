@@ -1,8 +1,11 @@
+nice to have :
+showing image in browser
+
 profile user system
 
 - login  done
 - register email and password aja done
-=============JWT============= on progress
+=============JWT============= Done
 - get profile - email
 - update profile - email
 - udpate image_profile done

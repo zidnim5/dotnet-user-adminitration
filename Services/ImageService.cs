@@ -30,7 +30,7 @@ namespace dotnet_user_adminitration.Services
                {
                     var fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
 
-                    var path = Path.Combine(Directory.GetCurrentDirectory(), "Assets/Profile", fileName);
+                    var path = Path.Combine(Directory.GetCurrentDirectory(), "./wwwroot/Assets/Profile", fileName);
 
                     using (var stream = new FileStream(path, FileMode.Create))
                     {
