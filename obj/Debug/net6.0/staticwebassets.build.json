@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "YeC49/ecj47/DN4HNJDiI0Eako2NzHMh9Nws6NxoVnI=",
+  "Hash": "nIvpQB1CoPjTYLpwdARO/9/O0XJXV+8o+JD4T/hiKQs=",
   "Source": "dotnet-user-adminitration",
   "BasePath": "_content/dotnet-user-adminitration",
   "Mode": "Default",
@@ -66,6 +66,23 @@
       "CopyToOutputDirectory": "Assets",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/Assets/Profile/344c6b05-06f7-4463-8998-4cd5d02d6120"
+    },
+    {
+      "Identity": "/home/zidnim5/Music/healthbank/dotnet-user-adminitration/wwwroot/Assets/Profile/40b8f5bc-60a2-4419-8bcb-39ea5b76108b",
+      "SourceId": "dotnet-user-adminitration",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/zidnim5/Music/healthbank/dotnet-user-adminitration/wwwroot/",
+      "BasePath": "_content/dotnet-user-adminitration",
+      "RelativePath": "Assets/Profile/40b8f5bc-60a2-4419-8bcb-39ea5b76108b",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Assets",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Assets/Profile/40b8f5bc-60a2-4419-8bcb-39ea5b76108b"
     },
     {
       "Identity": "/home/zidnim5/Music/healthbank/dotnet-user-adminitration/wwwroot/Assets/Profile/587bf60a-18f2-407f-abb1-61241058babe",

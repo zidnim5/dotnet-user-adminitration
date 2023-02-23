@@ -50,7 +50,8 @@ namespace dotnet_user_adminitration.Services
           public string GetBaseUrl()
           {
                var request = _httpContextAccessor!.HttpContext!.Request;
-               var baseUrl = $"{request.Scheme}://{request.Host.Value}{request.Path}/";
+               // var baseUrl = $"{request.Scheme}://{request.Host.Value}{request.Path}/";
+               var baseUrl = $"{request.Scheme}://{request.Host.Value}/Asset?filename=";
                return baseUrl;
           }
      }
